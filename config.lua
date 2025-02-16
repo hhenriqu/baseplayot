@@ -412,9 +412,9 @@ maxMarketOffersAtATimePerPlayer = 100
 
 -- MySQL
 mysqlHost = "127.0.0.1"
-mysqlUser = "root"
-mysqlPass = "root"
-mysqlDatabase = "otservbr-global"
+mysqlUser = "canary"
+mysqlPass = "Helio@230793"
+mysqlDatabase = "donodot_db"
 mysqlDatabaseBackup = false
 mysqlPort = 3306
 mysqlSock = ""
@@ -498,7 +498,7 @@ sortLootByChance = false
 -- NOTE: rateExp, rateSkill and rateMagic is used when 'rateUseStages = false' - or a fallback only
 -- To configure rates see file data/stages.lua
 -- lowLevelBonusExp works up to level 50
-rateUseStages = false
+rateUseStages = true
 lowLevelBonusExp = 50
 rateExp = 1
 rateSkill = 1
@@ -507,7 +507,7 @@ rateMagic = 1
 rateSpawn = 1
 
 -- Killing in the name of Quest
-rateKillingInTheNameOfPoints = 1
+rateKillingInTheNameOfPoints = 3
 
 -- Today regeneration condition over an loop every 1 second,
 -- So values which should regenerated less then 1 second or won't will work
@@ -558,7 +558,7 @@ defaultPriority = "high"
 startupDatabaseOptimization = true
 
 -- Status server information
-ownerName = "OpenTibiaBR"
+ownerName = "Helio Moraes"
 ownerEmail = "opentibiabr@outlook.com"
 url = "http://docs.opentibiabr.com/"
 location = "South America"
