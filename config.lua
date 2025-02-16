@@ -411,7 +411,7 @@ checkExpiredMarketOffersEachMinutes = 60
 maxMarketOffersAtATimePerPlayer = 100
 
 -- MySQL
-mysqlHost = "127.0.0.1"
+mysqlHost = "tibia_canary_db"
 mysqlUser = "canary"
 mysqlPass = "Helio@230793"
 mysqlDatabase = "donodot_db"
