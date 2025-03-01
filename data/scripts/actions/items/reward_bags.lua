@@ -1,5 +1,5 @@
 local rewardBags = {
-	[BAG_YOU_DESIRE] = {
+	[34109] = {
 		{ id = 34082, name = "soulcutter" },
 		{ id = 34083, name = "soulshredder" },
 		{ id = 34084, name = "soulbiter" },
@@ -20,7 +20,7 @@ local rewardBags = {
 		{ id = 34096, name = "soulshroud" },
 	},
 
-	[PRIMAL_BAG] = {
+	[39546] = {
 		{ id = 39147, name = "spiritthorn armor" },
 		{ id = 39148, name = "spiritthorn helmet" },
 		{ id = 39177, name = "charged spiritthorn ring" },
@@ -35,7 +35,7 @@ local rewardBags = {
 		{ id = 39186, name = "charged arboreal ring" },
 	},
 
-	[BAG_YOU_COVET] = {
+	[43895] = {
 		{ id = 43864, name = "sanguine blade" },
 		{ id = 43866, name = "sanguine cudgel" },
 		{ id = 43868, name = "sanguine hatchet" },

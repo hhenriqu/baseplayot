@@ -8411,7 +8411,6 @@
 		<attribute key="attack" value="25"/>
 		<attribute key="weight" value="2000"/>
 		<attribute key="script" value="moveevent;weapon">
-			<attribute key="breakChance" value="3"/>
 			<attribute key="weaponType" value="missile"/>
 			<attribute key="slot" value="hand"/>
 		</attribute>
@@ -9504,7 +9503,6 @@
 		<attribute key="attack" value="32"/>
 		<attribute key="weight" value="2200"/>
 		<attribute key="script" value="moveevent;weapon">
-			<attribute key="breakChance" value="6"/>
 			<attribute key="level" value="20"/>
 			<attribute key="unproperly" value="true"/>
 			<attribute key="weaponType" value="missile"/>
@@ -19239,7 +19237,6 @@
 		<attribute key="attack" value="38"/>
 		<attribute key="weight" value="2000"/>
 		<attribute key="script" value="moveevent;weapon">
-			<attribute key="breakChance" value="1"/>
 			<attribute key="level" value="42"/>
 			<attribute key="unproperly" value="true"/>
 			<attribute key="weaponType" value="missile"/>
@@ -19316,7 +19313,6 @@
 		<attribute key="attack" value="35"/>
 		<attribute key="weight" value="2500"/>
 		<attribute key="script" value="moveevent;weapon">
-			<attribute key="breakChance" value="3"/>
 			<attribute key="level" value="25"/>
 			<attribute key="unproperly" value="true"/>
 			<attribute key="weaponType" value="missile"/>
@@ -24555,10 +24551,10 @@
 	</item>
 	<item id="9175" article="a" name="skull"/>
 	<item id="9176" article="a" name="hot cauldron"/>
-	<item id="9177" article="a" name="voodoo doll">
+	<item id="9177" article="a" name="Addon doll">
 		<attribute key="primarytype" value="dolls and bears"/>
-		<attribute key="description" value="You read the numbers 3613 on the back of the doll"/>
-		<attribute key="weight" value="650"/>
+		<attribute key="description" value="Dress Up"/>
+		<attribute key="weight" value="20"/>
 	</item>
 	<item id="9178" article="a" name="voodoo doll">
 		<attribute key="primarytype" value="dolls and bears"/>
@@ -32809,9 +32805,9 @@
 	<item id="14757" article="a" name="dragon's nest">
 		<attribute key="description" value="Young dragons will hatch soon."/>
 	</item>
-	<item id="14758" article="a" name="premium scroll">
+	<item id="14758" article="a" name="vip scroll">
 		<attribute key="primarytype" value="documents and papers"/>
-		<attribute key="description" value="Using this scroll will add 30 days of premium time to your account once."/>
+		<attribute key="description" value="Using this scroll will add 30 days of vip time to your account once."/>
 		<attribute key="weight" value="0"/>
 	</item>
 	<item id="14759" article="a" name="surprise nest">
@@ -35008,7 +35004,6 @@
 		<attribute key="attack" value="15"/>
 		<attribute key="weight" value="1000"/>
 		<attribute key="script" value="moveevent;weapon">
-			<attribute key="breakChance" value="3"/>
 			<attribute key="weaponType" value="missile"/>
 			<attribute key="vocation" value="None;true"/>
 			<attribute key="slot" value="hand"/>
@@ -41709,7 +41704,6 @@
 		<attribute key="attack" value="55"/>
 		<attribute key="weight" value="2600"/>
 		<attribute key="script" value="moveevent;weapon">
-			<attribute key="breakChance" value="2"/>
 			<attribute key="level" value="60"/>
 			<attribute key="unproperly" value="true"/>
 			<attribute key="weaponType" value="missile"/>
@@ -46984,8 +46978,8 @@ hands of its owner. Granted by TibiaRoyal.com"/>
 		<attribute key="wrapableto" value="23398"/>
 		<attribute key="weight" value="850"/>
 	</item>
-	<item id="23721" article="a" name="gold pouch">
-		<attribute key="description" value="A infinity bag where you can hold coins."/>
+	<item id="23721" article="a" name="loot pouch">
+		<attribute key="description" value="A infinity bag where you can hold all things."/>
 		<attribute key="containersize" value="20"/>
 		<attribute key="movable" value="0"/>
 	</item>
@@ -74943,10 +74937,10 @@ Granted by TibiaGoals.com"/>
 	<item id="43374" name="vine">
 		<attribute key="type" value="ladder"/>
 	</item>
-	<item id="43510" name="tibiora's box">
-		<attribute key="description" value="Souvenir from Thais Museum."/>
-		<attribute key="weight" value="4200"/>
-	</item>
+<item id="43510" article="a" name="Premium Token">
+    <attribute key="weight" value="100" />
+    <attribute key="usable" value="1" />
+</item>
 	<item id="43511" article="a" name="citizen doll">
 		<attribute key="description" value="Souvenir from Thais Museum."/>
 		<attribute key="weight" value="2200"/>
@@ -80970,6 +80964,40 @@ Granted by TibiaGoals.com"/>
 	</item>
 	<item id="47379" article="a" name="large obelisk">
 		<attribute key="primarytype" value="pillars"/>
+	</item>
+	<item id="49279" article="a" name="Citizen box">
+		<attribute key="primarytype" value="decoration"/>
+		<attribute key="weight" value="20"/>
+				<attribute key="movable" value="0"/>
+	</item>
+	<item id="49280" article="a" name="Warrior box">
+		<attribute key="primarytype" value="decoration"/>
+		<attribute key="weight" value="20"/>
+				<attribute key="movable" value="0"/>
+	</item>
+	<item id="49281" article="a" name="Nobleman box">
+		<attribute key="primarytype" value="decoration"/>
+		<attribute key="weight" value="20"/>
+		<attribute key="movable" value="0"/>
+	</item>
+	<item id="49282" article="a" name="Partner box">
+		<attribute key="primarytype" value="decoration"/>
+		<attribute key="weight" value="20"/>
+		<attribute key="movable" value="0"/>
+	</item>
+	<item id="49283" article="a" name="Mystic Dice">
+		<attribute key="primarytype" value="valuables"/>
+		<attribute key="weight" value="20"/>
+	</item>
+	<item id="49284" article="a" name="Rare Addon doll">
+		<attribute key="primarytype" value="dolls and bears"/>
+		<attribute key="description" value="Dress Up"/>
+		<attribute key="weight" value="20"/>
+	</item>
+	<item id="49285" article="a" name="Supreme Addon doll">
+		<attribute key="primarytype" value="dolls and bears"/>
+		<attribute key="description" value="Dress Up"/>
+		<attribute key="weight" value="20"/>
 	</item>
 </items>
 

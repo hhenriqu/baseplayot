@@ -12,3 +12,6 @@ dofile(DATA_DIRECTORY .. "/lib/tables/load.lua")
 
 -- Functions library
 dofile(DATA_DIRECTORY .. "/lib/functions/load.lua")
+
+-- Hunt Refiller
+dofile(DATA_DIRECTORY .. "/lib/custom/hunt_refiller.lua")

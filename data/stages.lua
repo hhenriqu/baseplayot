@@ -85,7 +85,7 @@ experienceStages = {
 
 skillsStages = {
 	{
-	        minlevel = 1,
+	    minlevel = 1,
 		maxlevel = 80,
 		multiplier = 10,
 	},

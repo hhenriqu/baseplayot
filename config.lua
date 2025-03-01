@@ -211,7 +211,7 @@ hazardSpawnPlunderMultiplier = 25
 loyaltyEnabled = true
 loyaltyPointsPerCreationDay = 1
 loyaltyPointsPerPremiumDaySpent = 0
-loyaltyPointsPerPremiumDayPurchased = 0
+loyaltyPointsPerPremiumDayPurchased = 30
 loyaltyBonusPercentageMultiplier = 1.0
 
 -- Custom PvP system
@@ -277,16 +277,16 @@ onlyPremiumAccount = false
 stashMoving = false
 stashItemCount = 5000
 depotChest = 4
-autoLoot = false
+autoLoot = true
 autoBank = false
-toggleGoldPouchAllowAnything = false
-toggleGoldPouchQuickLootOnly = false
+toggleGoldPouchAllowAnything = true
+toggleGoldPouchQuickLootOnly = true
 toggleServerIsRetroPVP = false
 toggleTravelsFree = false
 buyAolCommandFee = 0
 buyBlessCommandFee = 0
 teleportPlayerToVocationRoom = true
-toggleReceiveReward = false
+toggleReceiveReward = true
 randomMonsterSpawn = false
 lootPouchMaxLimit = 2000
 storeInboxMaxLimit = 2000
@@ -303,7 +303,7 @@ teleportSummons = false
 -- NOTE: true will allow the /reload command to be used
 -- NOTE: Using this script might cause unwanted changes
 -- This script forces a reload in the entire server, this means that everything that is stored in memory might stop to work properly and/or completely, this script should be used in test environments only
-allowReload = false
+allowReload = true
 
 -- Stamina in Trainers
 staminaTrainer = false
@@ -315,7 +315,7 @@ staminaOrangeDelay = 1
 staminaGreenDelay = 5
 staminaPzGain = 1
 -- Max players allowed on a dummy.
-maxAllowedOnADummy = 1
+maxAllowedOnADummy = 5
 
 -- Save interval per time
 -- NOTE: toggleSaveInterval: true = enable the save interval, false = disable the save interval
@@ -326,8 +326,8 @@ maxAllowedOnADummy = 1
 toggleSaveAsync = false
 toggleSaveInterval = true
 saveIntervalType = "hour"
-toggleSaveIntervalCleanMap = true
-saveIntervalTime = 1
+toggleSaveIntervalCleanMap = false
+saveIntervalTime = 2
 
 -- Imbuement
 toggleImbuementShrineStorage = false
@@ -338,8 +338,8 @@ toggleImbuementNonAggressiveFightOnly = false
 -- NOTE: Only quests that are in the "freequests.lua" script table will work
 -- toggleFreeQuest = enable/disable the system
 -- freeQuestStage = if you add more quests to the table, change this value to run freeQuest again
-toggleFreeQuest = false
-freeQuestStage = 1
+toggleFreeQuest = true
+freeQuestStage = 3
 
 -- Deaths
 -- NOTE: Leave deathLosePercent as -1 if you want to use the default
@@ -446,7 +446,7 @@ maxMessageBuffer = 4
 emoteSpells = false
 allowWalkthrough = true
 coinPacketSize = 25
-coinImagesURL = "http://147.93.68.23/images/store/"
+coinImagesURL = "http://playot.tibiaplaybook.com.br/images/store/"
 classicAttackSpeed = false
 showScriptsLogInConsole = false
 -- time to suppress negative conditions after being affected by them (ms)
@@ -454,7 +454,7 @@ minDelayBetweenConditions = 0
 -- configure maximum value of critical imbuement
 criticalChance = 10
 inventoryGlowOnFiveBless = false
-adventurersBlessingLevel = 21
+adventurersBlessingLevel = 50
 skulledDeathLoseStoreItem = false
 experienceDisplayRates = true
 -- configure attack base on Fist Fighting skill/experience
@@ -492,7 +492,7 @@ globalServerSaveTime = "06:00:00"
 -- rateLoot to avoid losing all rare items when
 -- the corpse size is less than the total of loots
 -- the monster can drop
-sortLootByChance = false
+sortLootByChance = true
 
 -- Rates
 -- NOTE: rateExp, rateSkill and rateMagic is used when 'rateUseStages = false' - or a fallback only
@@ -502,7 +502,7 @@ rateUseStages = true
 lowLevelBonusExp = 50
 rateExp = 1
 rateSkill = 1
-rateLoot = 1
+rateLoot = 2.5
 rateMagic = 1
 rateSpawn = 1
 
