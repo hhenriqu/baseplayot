@@ -1,5 +1,5 @@
 local refiller = Action()
-local timeToDisapear = 10 * 1000
+local timeToDisapear = 120 * 1000
 function refiller.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     if not Tile(player:getPosition()):hasFlag(TILESTATE_PROTECTIONZONE) and  player:getCondition(CONDITION_INFIGHT, CONDITIONID_DEFAULT) or player:isPzLocked() then
         player:sendCancelMessage("You can't use this while in battle.")
@@ -16,7 +16,7 @@ function refiller.onUse(player, item, fromPosition, target, toPosition, isHotkey
 
     if not HUNT_REFILLER[pid] then HUNT_REFILLER[pid] = {} end
         local position = player:getPosition()
-        local npc = Game.createNpc('Sandra de Sá', position)
+        local npc = Game.createNpc('Mysterious Explorer', position)
         HUNT_REFILLER[pid].time = os.time() + 15 * 60
         HUNT_REFILLER[pid].npc = npc:getId()
         
@@ -32,5 +32,5 @@ function refiller.onUse(player, item, fromPosition, target, toPosition, isHotkey
     return true
 end
 
-refiller:id(3243) -- REPLACE HERE
+refiller:id(49287) -- REPLACE HERE
 refiller:register()

@@ -80999,5 +80999,48 @@ Granted by TibiaGoals.com"/>
 		<attribute key="description" value="Dress Up"/>
 		<attribute key="weight" value="20"/>
 	</item>
+	<item id="49286" article="an" name="Loot Seller">
+		<attribute key="primarytype" value="fansite items"/>
+		<attribute key="description" value="Sell your loot easily, directly from your loot pouch to the bank, wherever you are."/>
+		<attribute key="weight" value="1200"/>
+		<attribute key="movable" value="0"/>
+	</item>
+	<item id="49287" article="a" name="Explorer Call">
+		<attribute key="primarytype" value="fansite items"/>
+		<attribute key="description" value="Need potions? How about calling the explorer to help you? He has everything you need to continue your journey."/>
+		<attribute key="weight" value="1200"/>
+		<attribute key="movable" value="0"/>
+	</item>
+	<item id="49288" article="a" name="Mount Doll">
+		<attribute key="primarytype" value="fansite items"/>
+		<attribute key="description" value="Get a random mount, good luck!"/>
+		<attribute key="weight" value="1200"/>
+	</item>
+	<item id="49289" article="a" name="War Battle Backpack">
+		<attribute key="containersize" value="36"/>
+		<attribute key="description" value="The War Battle Backpack: Equip yourself with the ultimate gear storage, designed to keep your weapons and supplies organized for every battle ahead."/>
+		<attribute key="weight" value="1500"/>
+		<attribute key="imbuementslot" value="1">
+			<attribute key="increase capacity" value="5"/>
+		</attribute>
+		<attribute key="script" value="moveevent">
+			<attribute key="slot" value="backpack"/>
+		</attribute>
+	</item>
+	<item id="49290" article="a" name="Master Healing potion">
+		<attribute key="primarytype" value="liquids"/>
+		<attribute key="weight" value="290"/>
+		<attribute key="description" value="A powerful potion that can ensure life doesn't slip through your fingers."/>
+	</item>
+	<item id="49291" article="a" name="Stronghold Signal">
+		<attribute key="primarytype" value="liquids"/>
+		<attribute key="weight" value="290"/>
+		<attribute key="description" value="Hail King!"/>
+	</item>
+	<item id="49292" article="a" name="Supreme Mount Doll">
+		<attribute key="primarytype" value="fansite items"/>
+		<attribute key="description" value="Get a random store mount, good luck!"/>
+		<attribute key="weight" value="1200"/>
+	</item>
 </items>
 

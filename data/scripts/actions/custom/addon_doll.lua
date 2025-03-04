@@ -64,7 +64,7 @@ function addonDoll.onUse(player, item, fromPosition, itemEx, toPosition, isHotke
 
     -- Remove o item após o uso
     item:remove(1)
-    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have received a new outfit!")
+    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have received a new mount: " .. randomOutfit.name .. "!")
     return true
 end
 

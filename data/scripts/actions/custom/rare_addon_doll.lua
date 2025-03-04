@@ -22,7 +22,7 @@ function rareAddonDoll.onUse(player, item, fromPosition, itemEx, toPosition, isH
     for outfitName, outfitData in pairs(outfits) do
         local looktype = (player:getSex() == PLAYERSEX_MALE) and outfitData.male or outfitData.female
         if not player:hasOutfit(looktype, _addon) then
-            table.insert(availableOutfits, outfitData)
+            table.insert(availableOutfits, {name = outfitName, data = outfitData})
         end
     end
 
@@ -34,7 +34,7 @@ function rareAddonDoll.onUse(player, item, fromPosition, itemEx, toPosition, isH
 
     -- Sorteia um outfit aleatório que o jogador não possui
     local randomOutfit = availableOutfits[math.random(1, #availableOutfits)]
-    local looktype = (player:getSex() == PLAYERSEX_MALE) and randomOutfit.male or randomOutfit.female
+    local looktype = (player:getSex() == PLAYERSEX_MALE) and randomOutfit.data.male or randomOutfit.data.female
 
     -- Adiciona o outfit ao jogador
     if not player:addOutfitAddon(looktype, _addon) then
@@ -43,12 +43,12 @@ function rareAddonDoll.onUse(player, item, fromPosition, itemEx, toPosition, isH
     end
 
     -- Adiciona o outfit para ambos os sexos (opcional, dependendo da lógica do seu servidor)
-    player:addOutfitAddon(randomOutfit.male, _addon)
-    player:addOutfitAddon(randomOutfit.female, _addon)
+    player:addOutfitAddon(randomOutfit.data.male, _addon)
+    player:addOutfitAddon(randomOutfit.data.female, _addon)
 
     -- Remove o item após o uso
     item:remove(1)
-    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have received a new outfit!")
+    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have received a new mount: " .. randomOutfit.name .. "!")
     return true
 end
 

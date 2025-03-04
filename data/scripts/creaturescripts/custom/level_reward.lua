@@ -6,11 +6,15 @@ local table =
 	-- [level] = type = "coin", id = {QUANTITY, 0}, msg = "MESSAGE"},
 	-- [level] = type = "mount", id = {ID_MOUNT, 0}, msg = "MESSAGE"},
 
-	[20] = {type = "item", id = {2160, 2}, msg = "You win 2 crystal coins for reach the level 20!"},
-	[30] = {type = "bank", id = {20000, 0}, msg = "Was deposited in your bank 20000 gold coins!"},
-	[40] = {type = "addon", id = {136, 128}, msg = "You win the addon citizen full for reach the level 40!"},
-	[50] = {type = "coin", id = {5, 0}, msg = "You win 5 coins for reach the level 50!"},
-	[60] = {type = "mount", id = {2, 0}, msg = "You win the mount x!"},
+	[9] = {type = "vip", id = {7, 0}, msg = "You win 7 VIP days!"},
+	[20] = {type = "bank", id = {250000, 0}, msg = "Was deposited in your bank 200000 gold coins for reach the level 20!"},
+	[50] = {type = "bank", id = {250000, 0}, msg = "Was deposited in your bank 200000 gold coins for reach the level 50!"},
+	[100] = {type = "item", id = {49285, 1}, msg = "You win the a Supreme Addon Doll for reach the level 100!"},
+	[200] = {type = "item", id = {49292, 1}, msg = "You win the a Supreme Mount Doll for reach the level 200!"},
+	[400] = {type = "item", id = {49283, 1}, msg = "You win the a Mystic Ball for reach the level 400!"},
+	[600] = {type = "item", id = {49283, 1}, msg = "You win the a Mystic Ball for reach the level 600!"},
+	[800] = {type = "item", id = {49283, 1}, msg = "You win the a Mystic Ball for reach the level 800!"},
+	[1000] = {type = "item", id = {49283, 2}, msg = "You win the 2 Mystic Ball for reach the level 1000!"},
 }
 
 local storage = 15000
@@ -35,6 +39,8 @@ function levelReward.onAdvance(player, skill, oldLevel, newLevel)
 				player:addTibiaCoins(table[level].id[1])
 			elseif table[level].type == "mount" then
 				player:addMount(table[level].id[1])
+			elseif table[level].type == "vip" then
+				player:addPremiumDays(table[level].id[1])
 			else
 				return false
 			end

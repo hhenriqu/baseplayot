@@ -339,7 +339,7 @@ toggleImbuementNonAggressiveFightOnly = false
 -- toggleFreeQuest = enable/disable the system
 -- freeQuestStage = if you add more quests to the table, change this value to run freeQuest again
 toggleFreeQuest = true
-freeQuestStage = 3
+freeQuestStage = 98
 
 -- Deaths
 -- NOTE: Leave deathLosePercent as -1 if you want to use the default
@@ -359,7 +359,7 @@ Setting this to false may pose risks; if a house is abandoned and contains a lar
 -- Periods: daily/weekly/monthly/yearly/never
 -- Base: sqm,rent,sqm+rent
 toggleCyclopediaHouseAuction = true
-daysToCloseBid = 7
+daysToCloseBid = 1
 housePriceRentMultiplier = 0.0
 housePriceEachSQM = 1000
 houseRentPeriod = "monthly"
@@ -441,7 +441,7 @@ resetSessionsOnStartup = false
 allowChangeOutfit = true
 toggleMountInProtectionZone = false
 freePremium = true
-kickIdlePlayerAfterMinutes = 15
+kickIdlePlayerAfterMinutes = 60
 maxMessageBuffer = 4
 emoteSpells = false
 allowWalkthrough = true
@@ -502,7 +502,7 @@ rateUseStages = true
 lowLevelBonusExp = 50
 rateExp = 1
 rateSkill = 1
-rateLoot = 2.5
+rateLoot = 3
 rateMagic = 1
 rateSpawn = 1
 
