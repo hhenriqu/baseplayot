@@ -354,6 +354,20 @@ local questTable = {
 	{ storageName = "TheWhiteRavenMonastery.Passage", storage = Storage.Quest.U7_24.TheWhiteRavenMonastery.Passage, storageValue = 1 },
 	{ storageName = "TheWhiteRavenMonastery.Diary", storage = Storage.Quest.U7_24.TheWhiteRavenMonastery.Diary, storageValue = 2 },
 	{ storageName = "TheWhiteRavenMonastery.Door", storage = Storage.Quest.U7_24.TheWhiteRavenMonastery.Door, storageValue = 1 },
+		-- The Secret Library
+	{ storageName = "TheSecretLibrary.Questlog", storage = Storage.Quest.U11_80.TheSecretLibrary.Questlog, storageValue = 1 },
+	{ storageName = "TheSecretLibrary.SmallIslands.Questline", storage = Storage.Quest.U11_80.TheSecretLibrary.SmallIslands.Questline, storageValue = 4 },
+	{ storageName = "TheSecretLibrary.LiquidDeath.Questline", storage = Storage.Quest.U11_80.TheSecretLibrary.LiquidDeath.Questline, storageValue = 8 },
+	{ storageName = "TheSecretLibrary.Asuras.Questline", storage = Storage.Quest.U11_80.TheSecretLibrary.Asuras.Questline, storageValue = 7 },
+	{ storageName = "TheSecretLibrary.FalconBastion.Questline", storage = Storage.Quest.U11_80.TheSecretLibrary.FalconBastion.Questline, storageValue = 3 },
+	{ storageName = "TheSecretLibrary.Darashia.Questline", storage = Storage.Quest.U11_80.TheSecretLibrary.Darashia.Questline, storageValue = 9 },
+	{ storageName = "TheSecretLibrary.MoTA.Questline", storage = Storage.Quest.U11_80.TheSecretLibrary.MoTA.Questline, storageValue = 8 },
+	-- The Dream Courts
+	{ storageName = "TheDreamCourts.Main.Questline", storage = Storage.Quest.U12_00.TheDreamCourts.Main.Questline, storageValue = 1 },
+	{ storageName = "TheDreamCourts.WardStones.Questline", storage = Storage.Quest.U12_00.TheDreamCourts.WardStones.Questline, storageValue = 3 },
+	{ storageName = "TheDreamCourts.UnsafeRelease.Questline", storage = Storage.Quest.U12_00.TheDreamCourts.UnsafeRelease.Questline, storageValue = 3 },
+	{ storageName = "TheDreamCourts.HauntedHouse.Questline", storage = Storage.Quest.U12_00.TheDreamCourts.HauntedHouse.Questline, storageValue = 6 },
+	{ storageName = "TheDreamCourts.TheSevenKeys.Questline", storage = Storage.Quest.U12_00.TheDreamCourts.TheSevenKeys.Questline, storageValue = 2 },
 }
 
 -- from Position: (33201, 31762, 1)

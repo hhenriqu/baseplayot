@@ -324,7 +324,7 @@ maxAllowedOnADummy = 5
 -- NOTE: toggleSaveIntervalCleanMap: true = enable the clean map, false = disable the clean map
 -- NOTE: saveIntervalTime: time based on what was set in "saveIntervalType"
 toggleSaveAsync = false
-toggleSaveInterval = true
+toggleSaveInterval = false
 saveIntervalType = "hour"
 toggleSaveIntervalCleanMap = false
 saveIntervalTime = 2
@@ -368,7 +368,7 @@ houseOwnedByAccount = false
 houseBuyLevel = 100
 housePurchasedShowPrice = false
 houseLoseAfterInactivity = 30 -- days; 0 = never
-onlyInvitedCanMoveHouseItems = true
+onlyInvitedCanMoveHouseItems = false
 togglehouseTransferOnRestart = true
 
 -- Item Usage
@@ -381,7 +381,7 @@ timeBetweenExActions = 1000
 -- NOTE: pushWhenAttacking: true = enable the push during attack, false = disable the push during attack
 pushDelay = 1000
 pushDistanceDelay = 1500
-pushWhenAttacking = false
+pushWhenAttacking = true
 
 -- Map
 -- Note: Set mapName without .otbm at the end.
@@ -441,7 +441,7 @@ resetSessionsOnStartup = false
 allowChangeOutfit = true
 toggleMountInProtectionZone = false
 freePremium = true
-kickIdlePlayerAfterMinutes = 60
+kickIdlePlayerAfterMinutes = 1440
 maxMessageBuffer = 4
 emoteSpells = false
 allowWalkthrough = true
@@ -480,12 +480,12 @@ combatChainSkillFormulaSword = 1.1
 
 -- Global server Save
 -- NOTE: globalServerSaveNotifyDuration in minutes
-globalServerSaveNotifyMessage = true
+globalServerSaveNotifyMessage = false
 globalServerSaveNotifyDuration = 5
 globalServerSaveCleanMap = false
 globalServerSaveClose = false
 globalServerSaveShutdown = true
-globalServerSaveTime = "06:00:00"
+globalServerSaveTime = "07:00:00"
 
 -- Sort loot by chance, most rare items drop first
 -- it is good to be setted when you have a higher
@@ -500,8 +500,8 @@ sortLootByChance = true
 -- lowLevelBonusExp works up to level 50
 rateUseStages = true
 lowLevelBonusExp = 50
-rateExp = 1
-rateSkill = 1
+rateExp = 100
+rateSkill = 15
 rateLoot = 3
 rateMagic = 1
 rateSpawn = 1
@@ -588,7 +588,7 @@ vipBonusExp = 10
 vipBonusLoot = 2
 vipBonusSkill = 2
 vipAutoLootVipOnly = false
-vipStayOnline = false
+vipStayOnline = true
 vipFamiliarTimeCooldownReduction = 0
 vipKeepHouse = true
 

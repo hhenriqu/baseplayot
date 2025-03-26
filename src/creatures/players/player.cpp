@@ -2047,9 +2047,9 @@ void Player::sendPing() {
 
 	const int64_t noPongTime = timeNow - lastPong;
 	const auto &attackedCreature = getAttackedCreature();
-	if ((hasLostConnection || noPongTime >= 10000) && attackedCreature) {
-		setAttackedCreature(nullptr);
-	}
+	// if ((hasLostConnection || noPongTime >= 10000) && attackedCreature) {
+	// 	setAttackedCreature(nullptr);
+	// }
 
 	if (noPongTime >= 60000 && shouldForceLogout) {
 		if (canLogout() && g_creatureEvents().playerLogout(static_self_cast<Player>())) {
@@ -3814,8 +3814,6 @@ void Player::despawn() {
 	stopEventWalk();
 	onWalkAborted();
 	closeAllExternalContainers();
-	g_game().playerSetAttackedCreature(static_self_cast<Player>()->getID(), 0);
-	g_game().playerFollowCreature(static_self_cast<Player>()->getID(), 0);
 
 	// remove check
 	Game::removeCreatureCheck(static_self_cast<Player>());
@@ -3840,6 +3838,9 @@ void Player::despawn() {
 
 		spectator->onRemoveCreature(static_self_cast<Player>(), false);
 	}
+
+	g_game().playerSetAttackedCreature(static_self_cast<Player>()->getID(), 0);
+	g_game().playerFollowCreature(static_self_cast<Player>()->getID(), 0);
 
 	tile->removeCreature(static_self_cast<Player>());
 
