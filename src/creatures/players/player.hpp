@@ -1582,7 +1582,7 @@ private:
 	bool moved = false;
 	bool m_isDead = false;
 	bool imbuementTrackerWindowOpen = false;
-	bool shouldForceLogout = true;
+	bool shouldForceLogout = false;
 	bool connProtected = false;
 
 	// Hazard system
