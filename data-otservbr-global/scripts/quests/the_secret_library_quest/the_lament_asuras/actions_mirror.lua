@@ -15,5 +15,5 @@ function actions_asura_mirror.onUse(player, item, fromPosition, itemEx, toPositi
 	end
 end
 
-actions_asura_mirror:aid(4910)
+actions_asura_mirror:aid(49109090)
 actions_asura_mirror:register()

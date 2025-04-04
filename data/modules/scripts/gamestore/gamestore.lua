@@ -884,8 +884,71 @@ GameStore.Categories = {
 		icons = { "Category_Consumables.png" },
 		name = "Consumables",
 		rookgaard = true,
-		subclasses = { "Blessings", "Casks", "Exercise Weapons", "Kegs", "Potions", "Runes" },
+		subclasses = { "Utils", "Blessings", "Casks", "Exercise Weapons", "Kegs", "Potions", "Runes" },
 	},
+		-- Gnome
+		{
+			icons = { "Category_Consumables.png" },
+				name = "Utils",
+				parent = "Consumables",
+				rookgaard = true,
+				state = GameStore.States.STATE_NONE,
+				offers = {
+					{
+						icons = { "Sneaky_Stabber_of_Eliteness.png" },
+						name = "Sneaky Stabber of Elitenessr",
+						price = 10,
+						itemtype = 9594,
+						count = 1,
+						description = "This nifty gadget can be used for many vital and less vital purposes. If it's not jammed, that is",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
+					},
+					{
+						icons = { "squeezing_gear_of_girlpower.png" },
+						name = "Squeezing Gear of Girlpower",
+						price = 10,
+						itemtype = 9596,
+						count = 1,
+						description = "This nifty gadget can be used for many vital and less vital purposes. If it's not jammed, that is",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
+					},
+					{
+						icons = { "whacking_driller_of_fate.png" },
+						name = "Whacking Driller of Fate",
+						price = 10,
+						itemtype = 9598,
+						count = 1,
+						description = "This nifty gadget can be used for many vital and less vital purposes. If it's not jammed, that is",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
+					},
+					{
+						icons = { "whacking_driller_of_fate.png" },
+						name = "Whacking Driller of Fate",
+						price = 10,
+						itemtype = 9598,
+						count = 1,
+						description = "This nifty gadget can be used for many vital and less vital purposes. If it's not jammed, that is",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
+					},
+					{
+						icons = { "sliver.png" },
+						name = "Sliver",
+						price = 5,
+						itemtype = 37109,
+						count = 5,
+						description = "Sliver to Forge, Goodluck!",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+					},
+				},
+			},
 	-- Consumables ~ Blessings
 	{
 		icons = { "Category_Blessings.png" },

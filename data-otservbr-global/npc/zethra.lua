@@ -55,32 +55,35 @@ end
 npcType.onCloseChannel = function(npc, creature)
 	npcHandler:onCloseChannel(npc, creature)
 end
+
 npcHandler:addModule(FocusModule:new(), npcConfig.name, true, true, true)
 
-npcConfig.shop = {
-	{ itemName = "backpack", clientId = 2854, buy = 10 },
-	{ itemName = "bag", clientId = 2853, buy = 4 },
-	{ itemName = "fishing rod", clientId = 3483, buy = 150, sell = 30 },
-	{ itemName = "rope", clientId = 3003, buy = 50, sell = 8 },
-	{ itemName = "scroll", clientId = 2815, buy = 5 },
-	{ itemName = "scythe", clientId = 3453, buy = 12 },
-	{ itemName = "shovel", clientId = 3457, buy = 10, sell = 2 },
-	{ itemName = "torch", clientId = 2920, buy = 2 },
-	{ itemName = "worm", clientId = 3492, buy = 1 },
-}
+npcConfig.shop = LootShopConfig
+
+local function creatureSayCallback(npc, player, type, message)
+	local categoryTable = LootShopConfigTable[message:lower()]
+	if MsgContains(message, "shop options") then
+		npcHandler:say("I sell a selection of " .. GetFormattedShopCategoryNames(LootShopConfigTable), npc, player)
+	elseif categoryTable then
+		local remainingCategories = npc:getRemainingShopCategories(message:lower(), LootShopConfigTable)
+		npcHandler:say("Of course, just browse through my wares. You can also look at " .. remainingCategories .. ".", npc, player)
+		npc:openShopWindowTable(player, categoryTable)
+	end
+end
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:setMessage(MESSAGE_GREET, "Ah, a customer! Be greeted, |PLAYERNAME|! I buy all kinds of loot, would you like a {trade}? I can also show you my {shop options}.")
+npcHandler:setMessage(MESSAGE_SENDTRADE, "Ah, a customer! Be greeted, |PLAYERNAME|! I buy all kinds of loot, would you look at " .. GetFormattedShopCategoryNames(LootShopConfigTable) .. ".")
 
 -- On buy npc shop message
 npcType.onBuyItem = function(npc, player, itemId, subType, amount, ignore, inBackpacks, totalCost)
 	npc:sellItem(player, itemId, amount, subType, 0, ignore, inBackpacks)
 end
-
 -- On sell npc shop message
 npcType.onSellItem = function(npc, player, itemId, subtype, amount, ignore, name, totalCost)
 	player:sendTextMessage(MESSAGE_TRADE, string.format("Sold %ix %s for %i gold.", amount, name, totalCost))
 end
-
 -- On check npc shop message (look item)
 npcType.onCheckItem = function(npc, player, clientId, subType) end
 
--- npcType registering the npcConfig table
 npcType:register(npcConfig)
