@@ -92,7 +92,7 @@ function supremeAddonDoll.onUse(player, item, fromPosition, itemEx, toPosition, 
 
     -- Remove o item após o uso
     item:remove(1)
-    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have received a new mount: " .. randomOutfit.name .. "!")
+    player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have received a new outfit: " .. randomOutfit.name .. "!")
     return true
 end
 

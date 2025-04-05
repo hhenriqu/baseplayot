@@ -117,7 +117,7 @@ augmentStrongImpactPercent = 10
 -- NOTE: preyBonusTime: Time in seconds that players will have of prey bonus.
 -- NOTE: preyFreeRerollTime: Time in seconds that players will have to wait to get a new free prey list.
 preySystemEnabled = true
-preyFreeThirdSlot = true
+preyFreeThirdSlot = false
 preyRerollPricePerLevel = 200
 preySelectListPrice = 5
 preyBonusRerollPrice = 1
@@ -129,7 +129,7 @@ preyFreeRerollTime = 20 * 60 * 60
 -- NOTE: taskHuntingRerollPricePerLevel: Price multiplier in gold coin for rerolling task hunting list.
 -- NOTE: taskHuntingFreeRerollTime: Time in seconds that players will have to wait to get a new free task hunting list.
 taskHuntingSystemEnabled = true
-taskHuntingFreeThirdSlot = true
+taskHuntingFreeThirdSlot = false
 taskHuntingLimitedTasksExhaust = 20 * 60 * 60
 taskHuntingRerollPricePerLevel = 200
 taskHuntingSelectListPrice = 5
@@ -158,7 +158,7 @@ forgeTierLossReduction = 50
 forgeAmountMultiplier = 3
 forgeMinSlivers = 3
 forgeMaxSlivers = 7
-forgeInfluencedLimit = 300
+forgeInfluencedLimit = 4000
 forgeFiendishLimit = 4
 forgeFiendishIntervalType = "hour"
 forgeFiendishIntervalTime = "1"
@@ -184,8 +184,8 @@ transcendanceAvatarDuration = 7000
 -- Bestiary & Bosstiary system
 -- NOTE: bestiaryKillMultiplier, multiplier value of monster killed, default 1
 -- NOTE: bosstiaryKillMultiplier, multiplier value of boss killed, default 1
-bestiaryKillMultiplier = 2
-bosstiaryKillMultiplier = 2
+bestiaryKillMultiplier = 4
+bosstiaryKillMultiplier = 4
 bestiaryRateCharmShopPrice  = 1.0
 boostedBossSlot = true
 boostedBossLootBonus = 250
@@ -339,7 +339,7 @@ toggleImbuementNonAggressiveFightOnly = false
 -- toggleFreeQuest = enable/disable the system
 -- freeQuestStage = if you add more quests to the table, change this value to run freeQuest again
 toggleFreeQuest = true
-freeQuestStage = 98
+freeQuestStage = 99
 
 -- Deaths
 -- NOTE: Leave deathLosePercent as -1 if you want to use the default
