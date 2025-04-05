@@ -103,7 +103,430 @@ GameStore.Categories = {
 		icons = { "Category_ExclusiveOffers.png" },
 		name = "Set Itens",
 		rookgaard = true,
-		subclasses = {"Soul", "Falcon", "Lion", "Gnome", "Cobra", "Destruction"},
+		subclasses = {"Sanguine", "Primal", "Soul", "Falcon", "Lion", "Naga", "Gnome", "Cobra", "Destruction"},
+	},
+	-- Sanguine
+	{
+		icons = { "Category_ExclusiveOffers.png" },
+		name = "Sanguine",
+		parent = "Set Itens",
+		rookgaard = true,
+		state = GameStore.States.STATE_NONE,
+		offers = {
+			-- Knight Weapons
+			{
+				icons = { "Sanguine_Blade.png" },
+				name = "Sanguine Blade",
+				price = 1000,
+				itemtype = 43864,
+				count = 1,
+				description = "(Atk:8 physical + 46 fire, Def:32 +3, sword fighting +5, life leech +600, mana leech +300). It can only be wielded properly by knights of level 600 or higher. It weighs 61.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Grand_Sanguine_Blade.png" },
+				name = "Grand Sanguine Blade",
+				price = 12500,
+				itemtype = 43865,
+				count = 1,
+				description = "(Atk:8 physical + 46 fire, Def:32 +3, sword fighting +5, life leech +600, mana leech +300, enhanced fierce berserk). It can only be wielded properly by knights of level 600 or higher. It weighs 60.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Sanguine_Cudgel.png" },
+				name = "Sanguine Cudgel",
+				price = 1000,
+				itemtype = 43866,
+				count = 1,
+				description = "(Atk:8 physical + 46 death, Def:32 +3, club fighting +5, life leech +600, mana leech +300). It can only be wielded properly by knights of level 600 or higher. It weighs 69.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Grand_Sanguine_Cudgel.png" },
+				name = "Grand Sanguine Cudgel",
+				price = 12500,
+				itemtype = 43867,
+				count = 1,
+				description = "(Atk:8 physical + 46 death, Def:32 +3, club fighting +5, life leech +600, mana leech +300, enhanced fierce berserk). It can only be wielded properly by knights of level 600 or higher. It weighs 68.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Sanguine_Hatchet.png" },
+				name = "Sanguine Hatchet",
+				price = 1000,
+				itemtype = 43868,
+				count = 1,
+				description = "(Atk:8 physical + 46 fire, Def:32 +3, axe fighting +5, life leech +600, mana leech +300). It can only be wielded properly by knights of level 600 or higher. It weighs 72.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Grand_Sanguine_Hatchet.png" },
+				name = "Grand Sanguine Hatchet",
+				price = 12500,
+				itemtype = 43869,
+				count = 1,
+				description = "(Atk:8 physical + 46 fire, Def:32 +3, axe fighting +5, life leech +600, mana leech +300, enhanced fierce berserk). It can only be wielded properly by knights of level 600 or higher. It weighs 72.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Sanguine_Razor.png" },
+				name = "Sanguine Razor",
+				price = 1000,
+				itemtype = 43870,
+				count = 1,
+				description = "(Atk:8 physical + 50 energy, Def:35, sword fighting +5, critical hit chance +10%, critical extra damage +12%). It can only be wielded properly by knights of level 600 or higher. It weighs 81.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Grand_Sanguine_Razor.png" },
+				name = "Grand Sanguine Razor",
+				price = 12500,
+				itemtype = 43871,
+				count = 1,
+				description = "(Atk:8 physical + 50 energy, Def:35, sword fighting +5, critical hit chance +10%, critical extra damage +12%, enhanced fierce berserk). It can only be wielded properly by knights of level 600 or higher. It weighs 79.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Sanguine_Bludgeon.png" },
+				name = "Sanguine Bludgeon",
+				price = 1000,
+				itemtype = 43872,
+				count = 1,
+				description = "(Atk:8 physical + 50 earth, Def:35, club fighting +5, critical hit chance +10%, critical extra damage +12%). It can only be wielded properly by knights of level 600 or higher. It weighs 93.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Grand_Sanguine_Bludgeon.png" },
+				name = "Grand Sanguine Bludgeon",
+				price = 12500,
+				itemtype = 43873,
+				count = 1,
+				description = "(Atk:8 physical + 50 earth, Def:35, club fighting +5, critical hit chance +10%, critical extra damage +12%, enhanced fierce berserk). It can only be wielded properly by knights of level 600 or higher. It weighs 91.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Sanguine_Battleaxe.png" },
+				name = "Sanguine Battleaxe",
+				price = 1000,
+				itemtype = 43874,
+				count = 1,
+				description = "(Atk:8 physical + 50 death, Def:35, axe fighting +5, critical hit chance +10%, critical extra damage +12%). It can only be wielded properly by knights of level 600 or higher. It weighs 85.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Grand_Sanguine_Battleaxe.png" },
+				name = "Grand Sanguine Battleaxe",
+				price = 12500,
+				itemtype = 43875,
+				count = 1,
+				description = "(Atk:8 physical + 50 death, Def:35, axe fighting +5, critical hit chance +10%, critical extra damage +12%, enhanced fierce berserk). It can only be wielded properly by knights of level 600 or higher. It weighs 83.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Sanguine_Legs.png" },
+				name = "Sanguine Legs",
+				price = 1000,
+				itemtype = 43876,
+				count = 1,
+				description = "(Arm:12, sword/axe/club fighting +4, protection physical +9%, death +6%, reduces Avatar of Steel cooldown). It can only be wielded properly by knights of level 500 or higher. It weighs 38.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+
+			-- Paladin Weapons
+			{
+				icons = { "Sanguine_Bow.png" },
+				name = "Sanguine Bow",
+				price = 1000,
+				itemtype = 43877,
+				count = 1,
+				description = "(Atk:9, Range:6, Hit% +6, distance fighting +4, critical hit chance +10%, critical extra damage +12%, protection earth +6%). It can only be wielded properly by paladins of level 600 or higher. It weighs 47.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Grand_Sanguine_Bow.png" },
+				name = "Grand Sanguine Bow",
+				price = 12500,
+				itemtype = 43878,
+				count = 1,
+				description = "(Atk:9, Range:6, Hit% +6, distance fighting +4, critical hit chance +10%, critical extra damage +12%, protection earth +6%, enhanced divine caldera). It can only be wielded properly by paladins of level 600 or higher. It weighs 47.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Sanguine_Crossbow.png" },
+				name = "Sanguine Crossbow",
+				price = 1000,
+				itemtype = 43879,
+				count = 1,
+				description = "(Atk:10, Range:6, Hit% +7, distance fighting +4, critical hit chance +10%, critical extra damage +12%, protection fire +6%). It can only be wielded properly by paladins of level 600 or higher. It weighs 47.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Grand_Sanguine_Crossbow.png" },
+				name = "Grand Sanguine Crossbow",
+				price = 12500,
+				itemtype = 43880,
+				count = 1,
+				description = "(Atk:10, Range:6, Hit% +7, distance fighting +4, critical hit chance +10%, critical extra damage +12%, protection fire +6%, enhanced divine caldera). It can only be wielded properly by paladins of level 600 or higher. It weighs 47.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Sanguine_Greaves.png" },
+				name = "Sanguine Greaves",
+				price = 1000,
+				itemtype = 43881,
+				count = 1,
+				description = "(Arm:11, distance fighting +4, holy magic level +1, protection physical +7%, energy +9%, reduces Avatar of Light cooldown). It can only be wielded properly by paladins of level 500 or higher. It weighs 32.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+
+			-- Sorcerer Weapons
+			{
+				icons = { "Sanguine_Coil.png" },
+				name = "Sanguine Coil",
+				price = 1000,
+				itemtype = 43882,
+				count = 1,
+				description = "(Range:6, magic level +5, fire/energy magic level +1, life leech +200, mana leech +100, critical hit chance +10%, critical extra damage +5%, protection earth +7%). It can only be wielded properly by sorcerers of level 600 or higher. It weighs 22.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Grand_Sanguine_Coil.png" },
+				name = "Grand Sanguine Coil",
+				price = 12500,
+				itemtype = 43883,
+				count = 1,
+				description = "(Range:6, magic level +5, fire/energy magic level +1, life leech +200, mana leech +100, critical hit chance +10%, critical extra damage +5%, protection earth +7%, enhanced hell's core and energy wave). It can only be wielded properly by sorcerers of level 600 or higher. It weighs 21.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Sanguine_Boots.png" },
+				name = "Sanguine Boots",
+				price = 1000,
+				itemtype = 43884,
+				count = 1,
+				description = "(Arm:3, speed +10, magic level +2, death magic level +1, protection physical +2%, ice +8%, reduces Avatar of Storm cooldown). It can only be wielded properly by sorcerers of level 500 or higher. It weighs 19.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+
+			-- Druid Weapons
+			{
+				icons = { "Sanguine_Rod.png" },
+				name = "Sanguine Rod",
+				price = 1000,
+				itemtype = 43885,
+				count = 1,
+				description = "(Range:6, magic level +5, earth/ice magic level +1, life leech +600, mana leech +300, critical hit chance +10%, critical extra damage +5%, protection death +7%). It can only be wielded properly by druids of level 600 or higher. It weighs 25.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Grand_Sanguine_Rod.png" },
+				name = "Grand Sanguine Rod",
+				price = 12500,
+				itemtype = 43886,
+				count = 1,
+				description = "(Range:6, magic level +5, earth/ice magic level +1, life leech +600, mana leech +300, critical hit chance +10%, critical extra damage +5%, protection death +7%, enhanced eternal winter and terra wave). It can only be wielded properly by druids of level 600 or higher. It weighs 24.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Sanguine_Galoshes.png" },
+				name = "Sanguine Galoshes",
+				price = 1000,
+				itemtype = 43887,
+				count = 1,
+				description = "(Arm:3, speed +10, magic level +2, healing magic level +1, protection physical +2%, fire +8%, reduces Avatar of Nature cooldown). It can only be wielded properly by druids of level 500 or higher. It weighs 17.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+		},
+	},
+	-- Primal
+	{
+		icons = { "Category_ExclusiveOffers.png" },
+		name = "Primal",
+		parent = "Set Itens",
+		rookgaard = true,
+		state = GameStore.States.STATE_NONE,
+		offers = {
+			{
+				icons = { "Arcanomancer_Regalia.png" },
+				name = "Arcanomancer Regalia",
+				price = 500,
+				itemtype = 39151,
+				count = 1,
+				description = "(Arm:9, magic level +3, fire magic level +1, protection physical +3%, earth +7%). It can only be wielded properly by sorcerers of level 400 or higher. It weighs 15.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Arcanomancer_Folio.png" },
+				name = "Arcanomancer Folio",
+				price = 500,
+				itemtype = 39152,
+				count = 1,
+				description = "(Def:22, magic level +5, fire magic level +1, energy magic level +1, protection fire +8%, physical +3%). It can only be wielded properly by sorcerers of level 400 or higher. It weighs 26.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Charged_Arcanomancer_Sigil.png" },
+				name = "Charged Arcanomancer Sigil",
+				price = 500,
+				itemtype = 39183,
+				count = 1,
+				description = "A powerful ring that transforms when equipped. It can only be wielded properly by sorcerers of level 400 or higher. It weighs 0.90 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Arboreal_Crown.png" },
+				name = "Arboreal Crown",
+				price = 500,
+				itemtype = 39153,
+				count = 1,
+				description = "(Arm:9, magic level +3, healing magic level +1, protection ice +9%, physical +2%). It can only be wielded properly by druids of level 400 or higher. It weighs 12.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Arboreal_Tome.png" },
+				name = "Arboreal Tome",
+				price = 500,
+				itemtype = 39154,
+				count = 1,
+				description = "(Def:22, magic level +5, healing magic level +1, ice magic level +1, protection physical +4%, energy +6%). It can only be wielded properly by druids of level 400 or higher. It weighs 23.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Charged_Arboreal_Ring.png" },
+				name = "Charged Arboreal Ring",
+				price = 500,
+				itemtype = 39186,
+				count = 1,
+				description = "A powerful ring that transforms when equipped. It can only be wielded properly by druids of level 400 or higher. It weighs 0.70 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Alicorn_Headguard.png" },
+				name = "Alicorn Headguard",
+				price = 500,
+				itemtype = 39149,
+				count = 1,
+				description = "(Arm:11, distance fighting +3, protection all elements +5%, physical +5%). It can only be wielded properly by paladins of level 400 or higher. It weighs 39.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Alicorn_Quiver.png" },
+				name = "Alicorn Quiver",
+				price = 500,
+				itemtype = 39150,
+				count = 1,
+				description = "(Capacity:12, magic level +1, perfect shot damage +20, perfect shot range +3). It can only be wielded properly by paladins of level 400 or higher. It weighs 20.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Charged_Alicorn_Ring.png" },
+				name = "Charged Alicorn Ring",
+				price = 500,
+				itemtype = 39180,
+				count = 1,
+				description = "A powerful ring that transforms when equipped. It can only be wielded properly by paladins of level 400 or higher. It weighs 0.85 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Spiritthorn_Armor.png" },
+				name = "Spiritthorn Armor",
+				price = 500,
+				itemtype = 39147,
+				count = 1,
+				description = "(Arm:20, sword/axe/club fighting +4, damage reflection +19%, protection physical +13%). It can only be wielded properly by knights of level 400 or higher. It weighs 160.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Spiritthorn_Helmet.png" },
+				name = "Spiritthorn Helmet",
+				price = 500,
+				itemtype = 39148,
+				count = 1,
+				description = "(Arm:12, sword/axe/club fighting +3, damage reflection +13%, protection physical +6%, energy +10%). It can only be wielded properly by knights of level 400 or higher. It weighs 44.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Charged_Spiritthorn_Ring.png" },
+				name = "Charged Spiritthorn Ring",
+				price = 500,
+				itemtype = 39177,
+				count = 1,
+				description = "A powerful ring that transforms when equipped. It can only be wielded properly by knights of level 400 or higher. It weighs 0.95 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+		},
 	},
 	-- Soul
 	{
@@ -586,6 +1009,166 @@ GameStore.Categories = {
 			},
 		},
 	},
+	-- Naga
+	{
+		icons = { "Category_ExclusiveOffers.png" },
+		name = "Naga",
+		parent = "Set Itens",
+		rookgaard = true,
+		state = GameStore.States.STATE_NONE,
+		offers = {
+			-- Knight Items
+			{
+				icons = { "Naga_Sword.png" },
+				name = "Naga Sword",
+				price = 125,
+				itemtype = 39155,
+				count = 1,
+				description = "(Atk:8 physical + 44 ice, Def:31 +3, sword fighting +3). It can only be wielded properly by knights of level 300 or higher. It weighs 52.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Naga_Axe.png" },
+				name = "Naga Axe",
+				price = 125,
+				itemtype = 39156,
+				count = 1,
+				description = "(Atk:8 physical + 44 energy, Def:31 +3, axe fighting +3). It can only be wielded properly by knights of level 300 or higher. It weighs 55.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Naga_Club.png" },
+				name = "Naga Club",
+				price = 125,
+				itemtype = 39157,
+				count = 1,
+				description = "(Atk:52 physical, Def:31 +3, club fighting +3). It can only be wielded properly by knights of level 300 or higher. It weighs 60.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Frostflower_Boots.png" },
+				name = "Frostflower Boots",
+				price = 125,
+				itemtype = 39158,
+				count = 1,
+				description = "(Arm:3, protection ice +5%, physical +5%). It can only be wielded properly by knights of level 270 or higher. It weighs 11.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+
+			-- Paladin Items
+			{
+				icons = { "Naga_Crossbow.png" },
+				name = "Naga Crossbow",
+				price = 125,
+				itemtype = 39159,
+				count = 1,
+				description = "(Atk:8, Range:6, Hit% +6, distance fighting +2, protection poison +4%). It can only be wielded properly by paladins of level 300 or higher. It weighs 102.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Naga_Quiver.png" },
+				name = "Naga Quiver",
+				price = 125,
+				itemtype = 39160,
+				count = 1,
+				description = "(Capacity:8, protection ice +2%). It can only be wielded properly by paladins of level 250 or higher. It weighs 19.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Feverbloom_Boots.png" },
+				name = "Feverbloom Boots",
+				price = 125,
+				itemtype = 39161,
+				count = 1,
+				description = "(Arm:2, speed +15, distance fighting +1, protection ice +7%). It can only be wielded properly by paladins of level 270 or higher. It weighs 9.80 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+
+			-- Sorcerer Items
+			{
+				icons = { "Naga_Wand.png" },
+				name = "Naga Wand",
+				price = 125,
+				itemtype = 39162,
+				count = 1,
+				description = "(Range:6, magic level +2, energy magic level +2, protection ice +4%). It can only be wielded properly by sorcerers of level 250 or higher. It weighs 28.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Dawnfire_Sherwani.png" },
+				name = "Dawnfire Sherwani",
+				price = 125,
+				itemtype = 39164,
+				count = 1,
+				description = "(Arm:16, magic level +4, protection fire +10%, earth -2%). It can only be wielded properly by sorcerers of level 270 or higher. It weighs 28.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Dawnfire_Pantaloons.png" },
+				name = "Dawnfire Pantaloons",
+				price = 125,
+				itemtype = 39166,
+				count = 1,
+				description = "(Arm:8, magic level +2, protection physical +3%). It can only be wielded properly by sorcerers of level 300 or higher. It weighs 30.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+
+			-- Druid Items
+			{
+				icons = { "Naga_Rod.png" },
+				name = "Naga Rod",
+				price = 125,
+				itemtype = 39163,
+				count = 1,
+				description = "(Range:5, magic level +2, ice magic level +2, protection fire +4%). It can only be wielded properly by druids of level 250 or higher. It weighs 29.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Midnight_Tunic.png" },
+				name = "Midnight Tunic",
+				price = 125,
+				itemtype = 39165,
+				count = 1,
+				description = "(Arm:16, magic level +4, protection physical +3%). It can only be wielded properly by druids of level 300 or higher. It weighs 27.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+			{
+				icons = { "Midnight_Sarong.png" },
+				name = "Midnight Sarong",
+				price = 125,
+				itemtype = 39167,
+				count = 1,
+				description = "(Arm:8, magic level +2, protection ice +7%). It can only be wielded properly by druids of level 250 or higher. It weighs 31.00 oz.",
+				type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+				movable = true,
+				setOwner = false
+			},
+		},
+	},
 	-- Gnome
 	{
 	icons = { "Category_ExclusiveOffers.png" },
@@ -895,6 +1478,39 @@ GameStore.Categories = {
 				state = GameStore.States.STATE_NONE,
 				offers = {
 					{
+						icons = { "blessed_wooden_stake.png" },
+						name = "Blessed Wooden Stake",
+						price = 10,
+						itemtype = 5942,
+						count = 1,
+						description = "Many mighty priests of Tibia have blessed this stake",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
+					},
+					{
+						icons = { "obsidia_knife.png" },
+						name = "Obsidian Knife,
+						price = 10,
+						itemtype = 5908,
+						count = 1,
+						description = "Sharp and light, this is a useful tool for tanners, doctors and assassins",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
+					},
+					{
+						icons = { "supreme_cube.png" },
+						name = "Supreme Cube",
+						price = 25,
+						itemtype = 31633,
+						count = 1,
+						description = "This nifty gadget can be used for many vital and less vital purposes. If it's not jammed, that is",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
+					},
+					{
 						icons = { "Sneaky_Stabber_of_Eliteness.png" },
 						name = "Sneaky Stabber of Elitenessr",
 						price = 10,
@@ -928,15 +1544,13 @@ GameStore.Categories = {
 						setOwner = false
 					},
 					{
-						icons = { "whacking_driller_of_fate.png" },
-						name = "Whacking Driller of Fate",
-						price = 10,
-						itemtype = 9598,
+						icons = { "sliver.png" },
+						name = "Sliver",
+						price = 1,
+						itemtype = 37109,
 						count = 1,
-						description = "This nifty gadget can be used for many vital and less vital purposes. If it's not jammed, that is",
+						description = "Sliver to Forge, Goodluck!",
 						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-						movable = true,
-						setOwner = false
 					},
 					{
 						icons = { "sliver.png" },
@@ -944,6 +1558,42 @@ GameStore.Categories = {
 						price = 5,
 						itemtype = 37109,
 						count = 5,
+						description = "Sliver to Forge, Goodluck!",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+					},
+					{
+						icons = { "silver_token.png" },
+						name = "Silver Token",
+						price = 5,
+						itemtype = 22516,
+						count = 10,
+						description = "Sliver to Forge, Goodluck!",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+					},
+					{
+						icons = { "silver_token.png" },
+						name = "Silver Token",
+						price = 50,
+						itemtype = 22516,
+						count = 100,
+						description = "Sliver to Forge, Goodluck!",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+					},
+					{
+						icons = { "gold_token.png" },
+						name = "Gold Token",
+						price = 5,
+						itemtype = 22721,
+						count = 10,
+						description = "Sliver to Forge, Goodluck!",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+					},
+					{
+						icons = { "gold_token.png" },
+						name = "Gold Token",
+						price = 50,
+						itemtype = 22721,
+						count = 100,
 						description = "Sliver to Forge, Goodluck!",
 						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
 					},
