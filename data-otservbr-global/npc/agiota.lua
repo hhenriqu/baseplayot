@@ -25,10 +25,10 @@ npcConfig.flags = {
 
 -- Price settings
 local config = {
-    spread = 0.10,  -- 10% difference between buy and sell
+    spread = 0.12,  -- 10% difference between buy and sell
     minTCPrice = 1,  -- Minimum price
     maxTCPrice = 150000000, -- Maximum price
-    updateInterval = 60 * 60 * 1000  -- Updates every 60 minutes
+    updateInterval = 15 * 60 * 1000  -- Updates every 15 minutes
 }
 
 -- State variables
