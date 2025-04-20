@@ -1551,6 +1551,8 @@ GameStore.Categories = {
 						count = 1,
 						description = "Sliver to Forge, Goodluck!",
 						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
 					},
 					{
 						icons = { "sliver.png" },
@@ -1560,6 +1562,8 @@ GameStore.Categories = {
 						count = 5,
 						description = "Sliver to Forge, Goodluck!",
 						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
 					},
 					{
 						icons = { "silver_token.png" },
@@ -1569,6 +1573,8 @@ GameStore.Categories = {
 						count = 10,
 						description = "Sliver to Forge, Goodluck!",
 						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
 					},
 					{
 						icons = { "silver_token.png" },
@@ -1578,6 +1584,8 @@ GameStore.Categories = {
 						count = 100,
 						description = "Sliver to Forge, Goodluck!",
 						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
 					},
 					{
 						icons = { "gold_token.png" },
@@ -1587,6 +1595,8 @@ GameStore.Categories = {
 						count = 10,
 						description = "Gold to Forge, Goodluck!",
 						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
 					},
 					{
 						icons = { "gold_token.png" },
@@ -1596,6 +1606,96 @@ GameStore.Categories = {
 						count = 100,
 						description = "Gold to Forge, Goodluck!",
 						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
+					},
+					{
+						icons = { "lit_torch.png" },
+						name = "Lit Torch",
+						price = 10,
+						itemtype = 34016,
+						count = 1,
+						description = "lit torch (protection holy +2%",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
+					},
+					{
+						icons = { "magical_torch.png" },
+						name = "Magical Torch",
+						price = 10,
+						itemtype = 9042,
+						count = 1,
+						description = "magical torch (speed +25)",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
+					},
+					{
+						icons = { "sun_catcher.png" },
+						name = "Sun Catcher",
+						price = 10,
+						itemtype = 25977,
+						count = 1,
+						description = "sun catcher (protection fire +5%)",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
+					},
+					{
+						icons = { "scarab_ocarina.png" },
+						name = "Scarab Ocarina",
+						price = 15,
+						itemtype = 43740,
+						count = 1,
+						description = "scarab ocarina (protection earth +2%)",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
+					},
+					{
+						icons = { "conch_shell_horn.png" },
+						name = "Conch Shell Horn",
+						price = 15,
+						itemtype = 43863,
+						count = 1,
+						description = "conch shell horn (protection ice +5%)",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
+					},
+					{
+						icons = { "starlight_vial.png" },
+						name = "Starlight Vial",
+						price = 10,
+						itemtype = 25976,
+						count = 1,
+						description = "starlight vial (protection manadrain +5%)",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
+					},
+					{
+						icons = { "bone_fiddle.png" },
+						name = "Bone Fiddle",
+						price = 20,
+						itemtype = 28493,
+						count = 1,
+						description = "bone fiddle (protection lifedrain +5%)",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
+					},
+					{
+						icons = { "moon mirror.png" },
+						name = "Moon Mirror",
+						price = 20,
+						itemtype = 25975,
+						count = 1,
+						description = "moon mirror (protection death +5%)",
+						type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+						movable = true,
+						setOwner = false
 					},
 				},
 			},
@@ -7980,7 +8080,7 @@ GameStore.Categories = {
 			{
 				icons = { "Prey_Bonus_Reroll.png" },
 				name = "Prey Wildcard",
-				price = 50,
+				price = 15,
 				id = GameStore.SubActions.PREY_WILDCARD,
 				count = 5,
 				description = "<i>Use Prey Wildcards to reroll the bonus of an active prey, to lock your active prey or to select a prey of your choice.</i>\n\n{character}\n{info} added directly to Prey dialog\n{info} maximum amount that can be owned by character: 50",
