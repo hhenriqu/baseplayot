@@ -1,0 +1,94 @@
+# PlayOT — imagem do servidor de jogo (Canary / OTServBR)
+#
+# Baseado em docker/Dockerfile.x86 do repo baseplayot, com tres correcoes
+# necessarias para este repositorio (ver PLAYOT-notes abaixo):
+#
+#  1. O upstream faz `COPY config.lua.dist /canary/config.lua`. Este fork
+#     chegou a ter um `config.lua` real (com credenciais) commitado — a
+#     HMO-44 removeu esse arquivo do HEAD e recolocou `config.lua.dist`
+#     (com placeholders) + `.gitignore`. Copiamos o `.dist` como origem,
+#     igual ao upstream, e neutralizamos qualquer valor real via sed antes
+#     de assar a imagem (o start.sh reescreve por variavel de ambiente
+#     no boot de qualquer forma).
+#  2. docker/data/start.sh usa `wget` para baixar o mapa, mas a imagem final do
+#     upstream so instala mariadb-client e curl. Adicionamos wget.
+#  3. start.sh roda `mysqldump --all-databases` a cada boot; com um usuario que
+#     nao e root isso falha, e como o script usa `set -e` o container morre.
+#     Reescrevemos o dump para o escopo de um unico banco e o tornamos
+#     nao-fatal.
+
+# --- Stage 1: dependencias (vcpkg) ------------------------------------------
+FROM ubuntu:24.04 AS dependencies
+
+RUN apt-get update && apt-get install -y --no-install-recommends cmake git \
+	unzip build-essential ca-certificates curl zip tar \
+	pkg-config ninja-build autoconf automake libtool \
+	python3 \
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/*
+
+WORKDIR /opt
+COPY vcpkg.json /opt
+RUN vcpkgCommitId=$(grep '.builtin-baseline' vcpkg.json | awk -F: '{print $2}' | tr -d '," ' | tr -d '\r\n') \
+	&& echo "vcpkg commit ID: $vcpkgCommitId" \
+	&& git clone https://github.com/microsoft/vcpkg.git \
+	&& cd vcpkg \
+	&& git checkout "$vcpkgCommitId" \
+	&& ./bootstrap-vcpkg.sh
+
+WORKDIR /opt/vcpkg
+COPY vcpkg.json /opt/vcpkg/
+RUN /opt/vcpkg/vcpkg --feature-flags=binarycaching,manifests,versions install
+
+# --- Stage 2: build ---------------------------------------------------------
+FROM dependencies AS build
+
+COPY . /srv/
+WORKDIR /srv
+
+RUN export VCPKG_ROOT=/opt/vcpkg/ \
+	&& cmake --preset linux-release \
+	&& cmake --build --preset linux-release
+
+# --- Stage 3: runtime -------------------------------------------------------
+FROM ubuntu:24.04 AS prod
+
+VOLUME [ "/data" ]
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+	mariadb-client curl wget ca-certificates \
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/*
+
+COPY --from=build /srv/build/linux-release/bin/canary /bin/canary
+
+WORKDIR /canary
+
+COPY LICENSE *.sql key.pem /canary/
+COPY data /canary/data
+COPY data-canary /canary/data-canary
+COPY data-otservbr-global /canary/data-otservbr-global
+COPY config.lua.dist /canary/config.lua
+COPY docker/data/01-test_account.sql /canary/01-test_account.sql
+COPY docker/data/02-test_account_players.sql /canary/02-test_account_players.sql
+COPY docker/data/start.sh /canary/start.sh
+
+# PLAYOT-notes (1): garante que nenhum valor de config.lua.dist (placeholder
+# ou real) fique assado na imagem. O start.sh reescreve estes campos a
+# partir das variaveis de ambiente no boot.
+RUN sed -i 's/^mysqlPass = .*/mysqlPass = "CHANGE_ME"/' /canary/config.lua \
+	&& sed -i 's/^mysqlUser = .*/mysqlUser = "CHANGE_ME"/' /canary/config.lua \
+	&& sed -i 's/^mysqlDatabase = .*/mysqlDatabase = "CHANGE_ME"/' /canary/config.lua \
+	&& sed -i 's/^ip = .*/ip = "127.0.0.1"/' /canary/config.lua
+
+# PLAYOT-notes (3): dump apenas do banco do jogo e nunca fatal.
+RUN sed -i 's#mysqldump -u "$OT_DB_USER" -p"$OT_DB_PASSWORD" -h "$OT_DB_HOST" --port="$OT_DB_PORT" --all-databases >/data/all_databases.sql#mysqldump -u "$OT_DB_USER" -p"$OT_DB_PASSWORD" -h "$OT_DB_HOST" --port="$OT_DB_PORT" "$OT_DB_DATABASE" > "/data/backup-$OT_DB_DATABASE.sql" || echo "AVISO: backup falhou, seguindo o boot"#' /canary/start.sh \
+	&& chmod +x /canary/start.sh
+
+# o entrypoint publica config.lua e os data packs aqui para o MyAAC ler
+RUN mkdir -p /data/server
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=180s --retries=5 \
+	CMD bash -c 'cat < /dev/null > /dev/tcp/127.0.0.1/${OT_SERVER_LOGIN_PORT:-7171}' || exit 1
+
+ENTRYPOINT ["/canary/start.sh"]
