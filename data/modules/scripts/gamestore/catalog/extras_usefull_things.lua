@@ -77,7 +77,10 @@ return {
 		{
 			icons = { "Prey_Bonus_Reroll.png" },
 			name = "Prey Wildcard",
-			price = 50,
+			-- PlayOT: 3 tibia coins por unidade, o mesmo preco unitario do pacote de
+			-- 5 por 15 que existe hoje. Sem isso o pacote sairia a 10/unidade, mais
+			-- caro que comprar 5 unidades avulsas.
+			price = 15,
 			id = GameStore.SubActions.PREY_WILDCARD_BUNDLE,
 			count = 5,
 			description = "<i>Use Prey Wildcards to reroll the bonus of an active prey, to lock your active prey or to select a prey of your choice.</i>\n\n{character}\n{info} added directly to Prey dialog\n{info} maximum amount that can be owned by character: 50",
