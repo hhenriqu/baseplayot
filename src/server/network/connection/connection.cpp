@@ -13,11 +13,30 @@
 #include "lib/di/container.hpp"
 #include "server/network/message/outputmessage.hpp"
 #include "server/network/protocol/protocol.hpp"
+#include "server/network/protocol/transport_codec.hpp"
 #include "game/scheduling/dispatcher.hpp"
 #include "server/network/message/networkmessage.hpp"
 #include "server/network/protocol/protocolgame.hpp"
 #include "server/server.hpp"
 #include "utils/tools.hpp"
+
+namespace {
+	constexpr auto PROTOCOL_RELEASE_RETRY_DELAY = std::chrono::milliseconds(50);
+	constexpr auto PROTOCOL_RELEASE_WARNING_INTERVAL = std::chrono::seconds(5);
+
+	bool shouldLogProtocolReleaseRetry() {
+		static std::mutex warningLock;
+		static auto nextWarningAt = std::chrono::steady_clock::time_point {};
+
+		std::scoped_lock lock(warningLock);
+		const auto now = std::chrono::steady_clock::now();
+		if (now < nextWarningAt) {
+			return false;
+		}
+		nextWarningAt = now + PROTOCOL_RELEASE_WARNING_INTERVAL;
+		return true;
+	}
+}
 
 ConnectionManager &ConnectionManager::getInstance() {
 	return inject<ConnectionManager>();
@@ -54,7 +73,9 @@ void ConnectionManager::closeAll() {
 Connection::Connection(asio::io_service &initIoService, ConstServicePort_ptr initservicePort) :
 	readTimer(initIoService),
 	writeTimer(initIoService),
+	protocolReleaseRetryTimer(initIoService),
 	service_port(std::move(initservicePort)),
+	transportCodec(&TransportCodecs::rawClientFirst()),
 	socket(initIoService), m_msg() {
 }
 
@@ -70,12 +91,51 @@ void Connection::close(bool force) {
 	connectionState = CONNECTION_STATE_CLOSED;
 
 	if (protocol) {
-		g_dispatcher().addEvent([protocol = protocol] { protocol->release(); }, __FUNCTION__, std::chrono::milliseconds(CONNECTION_WRITE_TIMEOUT * 1000).count());
+		dispatchProtocolRelease();
 	}
 
 	if (messageQueue.empty() || force) {
 		closeSocket();
 	}
+}
+
+void Connection::dispatchProtocolRelease() {
+	std::scoped_lock lock(connectionLock);
+	if (!protocol) {
+		return;
+	}
+
+	std::function<void()> releaseTask = [protocolToRelease = protocol] {
+		protocolToRelease->release();
+	};
+	const auto producerToken = reinterpret_cast<uintptr_t>(protocol.get());
+	const bool accepted = DispatcherPolicy::scheduleWithFallbackLane(
+		[&releaseTask, producerToken](DispatcherLane lane) {
+			return g_dispatcher().addEvent(std::move(releaseTask), "Connection::dispatchProtocolRelease", 0, lane, producerToken);
+		},
+		DispatcherLane::ProtocolInput,
+		DispatcherLane::WorldCommit
+	);
+	const auto admissionResult = DispatcherPolicy::classifyAdmission(accepted, g_dispatcher().isShuttingDown());
+	if (admissionResult != DispatcherAdmissionResult::Saturated) {
+		protocolReleaseRetryAttempts = 0;
+		return;
+	}
+
+	++protocolReleaseRetryAttempts;
+	if (shouldLogProtocolReleaseRetry()) {
+		g_logger().warn(
+			"[Connection::dispatchProtocolRelease] Dispatcher saturated; retrying protocol cleanup (attempt {}).",
+			protocolReleaseRetryAttempts
+		);
+	}
+
+	protocolReleaseRetryTimer.expires_from_now(PROTOCOL_RELEASE_RETRY_DELAY);
+	protocolReleaseRetryTimer.async_wait([self = shared_from_this()](const std::error_code &error) {
+		if (error != asio::error::operation_aborted) {
+			self->dispatchProtocolRelease();
+		}
+	});
 }
 
 void Connection::closeSocket() {
@@ -106,7 +166,11 @@ void Connection::closeSocket() {
 void Connection::accept(Protocol_ptr protocolPtr) {
 	connectionState = CONNECTION_STATE_IDENTIFYING;
 	protocol = std::move(protocolPtr);
-	g_dispatcher().addEvent([eventProtocol = protocol] { eventProtocol->sendLoginChallenge(); }, __FUNCTION__, std::chrono::milliseconds(CONNECTION_WRITE_TIMEOUT * 1000).count());
+	protocol->onConnectionAccepted();
+
+	if (connectionState == CONNECTION_STATE_CLOSED) {
+		return;
+	}
 
 	acceptInternal(false);
 }
@@ -209,12 +273,9 @@ void Connection::parseHeader(const std::error_code &error) {
 		packetsSent = 0;
 	}
 
-	uint16_t size = m_msg.getLengthHeader();
-	if (protocol) {
-		size = (size * 8) + 4;
-	}
+	const auto size = getTransportCodec().decodeBodySize(m_msg.getLengthHeader());
 
-	if (size == 0 || size > INPUTMESSAGE_MAXSIZE) {
+	if (!size || *size > INPUTMESSAGE_MAXSIZE) {
 		close(FORCE_CLOSE);
 		return;
 	}
@@ -224,9 +285,9 @@ void Connection::parseHeader(const std::error_code &error) {
 		readTimer.async_wait([self = std::weak_ptr<Connection>(shared_from_this())](const std::error_code &error) { Connection::handleTimeout(self, error); });
 
 		// Read packet content
-		m_msg.setLength(size + HEADER_LENGTH);
+		m_msg.setLength(*size + HEADER_LENGTH);
 		// Read the remainder of proxy identification
-		asio::async_read(socket, asio::buffer(m_msg.getBodyBuffer(), size), [self = shared_from_this()](const std::error_code &error, std::size_t N) { self->parsePacket(error); });
+		asio::async_read(socket, asio::buffer(m_msg.getBodyBuffer(), *size), [self = shared_from_this()](const std::error_code &error, std::size_t N) { self->parsePacket(error); });
 	} catch (const std::system_error &e) {
 		g_logger().error("[Connection::parseHeader] - error: {}", e.what());
 		close(FORCE_CLOSE);
@@ -273,11 +334,7 @@ void Connection::parsePacket(const std::error_code &error) {
 				return;
 			}
 		} else {
-			// It is rather hard to detect if we have checksum or sequence method here so let's skip checksum check
-			// it doesn't generate any problem because olders protocol don't use 'server sends first' feature
-			m_msg.get<uint32_t>();
-			// Skip protocol ID
-			m_msg.skipBytes(2);
+			m_msg.skipBytes(getTransportCodec().getProfile().serverFirstPacketHeaderBytes);
 		}
 
 		protocol->onRecvFirstMessage(m_msg);
@@ -367,6 +424,25 @@ uint32_t Connection::getIP() {
 		}
 	}
 	return ip;
+}
+
+void Connection::setTransportCodec(const TransportCodec &codec, InitialTransportState state) {
+	std::scoped_lock lock(connectionLock);
+	transportCodec = &codec;
+	initialTransportState = state;
+}
+
+void Connection::setInitialTransportState(InitialTransportState state) {
+	std::scoped_lock lock(connectionLock);
+	initialTransportState = state;
+}
+
+const TransportCodec &Connection::getTransportCodec() const {
+	return transportCodec ? *transportCodec : TransportCodecs::rawClientFirst();
+}
+
+InitialTransportState Connection::getInitialTransportState() const {
+	return initialTransportState;
 }
 
 void Connection::internalSend(const OutputMessage_ptr &outputMessage) {

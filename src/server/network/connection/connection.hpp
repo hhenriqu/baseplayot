@@ -31,6 +31,15 @@ class ServicePort;
 using ServicePort_ptr = std::shared_ptr<ServicePort>;
 using ConstServicePort_ptr = std::shared_ptr<const ServicePort>;
 class NetworkMessage;
+class TransportCodec;
+
+enum class InitialTransportState : uint8_t {
+	Pending,
+	ResolvedModernDefault,
+	ResolvedFromPrelude,
+	ResolvedFromHint,
+	Rejected,
+};
 
 class ConnectionManager {
 public:
@@ -69,6 +78,16 @@ public:
 	void send(const OutputMessage_ptr &outputMessage);
 
 	uint32_t getIP();
+	[[nodiscard]] uint16_t getLocalPort() const {
+		std::error_code error;
+		const auto endpoint = socket.local_endpoint(error);
+		return error ? 0 : endpoint.port();
+	}
+
+	void setTransportCodec(const TransportCodec &codec, InitialTransportState state = InitialTransportState::ResolvedModernDefault);
+	void setInitialTransportState(InitialTransportState state);
+	[[nodiscard]] const TransportCodec &getTransportCodec() const;
+	[[nodiscard]] InitialTransportState getInitialTransportState() const;
 
 private:
 	void parseProxyIdentification(const std::error_code &error);
@@ -79,6 +98,7 @@ private:
 
 	static void handleTimeout(ConnectionWeak_ptr connectionWeak, const std::error_code &error);
 
+	void dispatchProtocolRelease();
 	void closeSocket();
 	void internalWorker();
 	void internalSend(const OutputMessage_ptr &outputMessage);
@@ -89,6 +109,7 @@ private:
 
 	asio::high_resolution_timer readTimer;
 	asio::high_resolution_timer writeTimer;
+	asio::high_resolution_timer protocolReleaseRetryTimer;
 
 	std::recursive_mutex connectionLock;
 
@@ -96,6 +117,8 @@ private:
 
 	ConstServicePort_ptr service_port;
 	Protocol_ptr protocol;
+	const TransportCodec* transportCodec = nullptr;
+	InitialTransportState initialTransportState = InitialTransportState::Pending;
 
 	asio::ip::tcp::socket socket;
 
@@ -106,6 +129,7 @@ private:
 	uint32_t ip = 1;
 
 	std::underlying_type_t<ConnectionState_t> connectionState = CONNECTION_STATE_OPEN;
+	uint64_t protocolReleaseRetryAttempts = 0;
 	bool receivedFirst = false;
 
 	friend class ServicePort;
