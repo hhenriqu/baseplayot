@@ -13,7 +13,7 @@ logger.info("The price list for the Loot Seller has been updated, with "..count.
 
 local conf = {
     toggleLogger = false, -- if send terminal message when player use the item
-    itemSellerId = 49286, -- register the item
+    itemSellerId = 49293, -- register the item
     exhaust = 15,
     lootPouchId = 23721, -- pouchId
     percentPrice = 0.9, -- if u want to change to lose price, use 0.9 to earn 90% of origin price, 0.55 to 55% etc...

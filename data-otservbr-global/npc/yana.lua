@@ -43,6 +43,7 @@ npcConfig.shop = {
 	{ name = "rod of desctruction", clientId = 27458, buy = 50 },
 	{ name = "slayer of desctruction", clientId = 27450, buy = 50 },
 	{ name = "wand of desctruction", clientId = 27457, buy = 50 },
+	{ name = "nunchaku of destruction", clientId = 50168, buy = 50 },
 	-- Imbuement items
 	{ itemName = "battle stone", clientId = 11447, buy = 290 },
 	{ itemName = "blazing bone", clientId = 16131, buy = 610 },

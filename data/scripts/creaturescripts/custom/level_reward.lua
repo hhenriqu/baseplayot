@@ -10,7 +10,7 @@ local table =
 	[20] = {type = "bank", id = {250000, 0}, msg = "Was deposited in your bank 200000 gold coins for reach the level 20!"},
 	[50] = {type = "bank", id = {250000, 0}, msg = "Was deposited in your bank 200000 gold coins for reach the level 50!"},
 	[100] = {type = "item", id = {49285, 1}, msg = "You win the a Supreme Addon Doll for reach the level 100!"},
-	[200] = {type = "item", id = {49292, 1}, msg = "You win the a Supreme Mount Doll for reach the level 200!"},
+	[200] = {type = "item", id = {49295, 1}, msg = "You win the a Supreme Mount Doll for reach the level 200!"},
 	[400] = {type = "item", id = {49283, 1}, msg = "You win the a Mystic Ball for reach the level 400!"},
 	[600] = {type = "item", id = {49283, 1}, msg = "You win the a Mystic Ball for reach the level 600!"},
 	[800] = {type = "item", id = {49283, 1}, msg = "You win the a Mystic Ball for reach the level 800!"},

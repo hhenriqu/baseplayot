@@ -193,5 +193,5 @@ function storeMountDoll.onUse(player, item, fromPosition, itemEx, toPosition, is
     return true
 end
 
-storeMountDoll:id(49292) -- Substitua pelo ID do item que concede a montaria
+storeMountDoll:id(49295) -- Substitua pelo ID do item que concede a montaria
 storeMountDoll:register()

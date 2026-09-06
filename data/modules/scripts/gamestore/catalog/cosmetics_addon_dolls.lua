@@ -46,7 +46,7 @@ return {
 			icons = { "Supreme_Mount_Doll.png" },
 			name = "Supreme Mount Doll",
 			price = 75,
-			itemtype = 49292,
+			itemtype = 49295,
 			count = 1,
 			description = "{character}\n{info} How about a new mount?\n{info} This item randomly adds a mount from the store.",
 			type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
