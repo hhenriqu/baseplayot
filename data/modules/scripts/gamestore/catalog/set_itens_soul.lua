@@ -1,0 +1,208 @@
+-- PLAYOT: categoria custom portada do gamestore.lua monolitico (HMO-64).
+return {
+	icons = { "Category_ExclusiveOffers.png" },
+	name = "Soul",
+	parent = "Set Itens",
+	rookgaard = true,
+	state = GameStore.States.STATE_NONE,
+	offers = {
+		{
+			icons = { "Soulcutter.png" },
+			name = "Soulcutter",
+			price = 750,
+			itemtype = 34082,
+			count = 1,
+			description = "(Atk:7 physical + 45 death, Def:32 +3, sword fighting +5, life leech chance +100%, life leech amount +5%, mana leech chance +100%, mana leech amount +3%). It can only be wielded properly by knights of level 400 or higher. It weighs 63.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Soulshredder.png" },
+			name = "Soulshredder",
+			price = 750,
+			itemtype = 34083,
+			count = 1,
+			description = "(Atk:10 physical + 47 ice, Def:35, sword fighting +5, critical hit chance 10%, critical extra damage +10%). It can only be wielded properly by knights of level 400 or higher. It weighs 81.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Soulbiter.png" },
+			name = "Soulbiter",
+			price = 750,
+			itemtype = 34084,
+			count = 1,
+			description = "(Atk:7 physical + 45 death, Def:32 +3, axe fighting +5, life leech chance +100%, life leech amount +5%, mana leech chance +100%, mana leech amount +3%). It can only be wielded properly by knights of level 400 or higher. It weighs 40.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Souleater.png" },
+			name = "Souleater",
+			price = 750,
+			itemtype = 34085,
+			count = 1,
+			description = "(Atk:10 physical + 47 ice, Def:35, axe fighting +5, critical hit chance 10%, critical extra damage +10%). It can only be wielded properly by knights of level 400 or higher. It weighs 72.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Soulcrusher.png" },
+			name = "Soulcrusher",
+			price = 750,
+			itemtype = 34086,
+			count = 1,
+			description = "(Atk:6 physical + 46 ice, Def:33 +3, club fighting +5, life leech chance +100%, life leech amount +5%, mana leech chance +100%, mana leech amount +3%). It can only be wielded properly by knights of level 400 or higher. It weighs 41.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Soulmaimer.png" },
+			name = "Soulmaimer",
+			price = 750,
+			itemtype = 34087,
+			count = 1,
+			description = "(Atk:10 physical + 47 energy, Def:35, club fighting +5, critical hit chance 10%, critical extra damage +10%). It can only be wielded properly by knights of level 400 or higher. It weighs 89.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Soulbleeder.png" },
+			name = "Soulbleeder",
+			price = 750,
+			itemtype = 34088,
+			count = 1,
+			description = "(Range: 6, Atk +8, Hit% +5, distance fighting +4, critical hit chance 10, critical extra damage +10, protection holy +7%). It can only be wielded properly by paladins of level 400 or higher. It weighs 47.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Soulpiercer.png" },
+			name = "Soulpiercer",
+			price = 750,
+			itemtype = 34089,
+			count = 1,
+			description = "(Range: 6, Atk +9, Hit% +6, distance fighting +4, critical hit chance 10, critical extra damage +10, protection death +7%). It can only be wielded properly by paladins of level 400 or higher. It weighs 40.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Soultainter.png" },
+			name = "Soultainter",
+			price = 750,
+			itemtype = 34090,
+			count = 1,
+			description = "(critical hit chance 10%, critical extra damage +10%, magic level +5, protection death +12%). It can only be wielded properly by sorcerers of level 400 or higher. It weighs 19.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Soulhexer.png" },
+			name = "Soulhexer",
+			price = 750,
+			itemtype = 34091,
+			count = 1,
+			description = "(life leech chance +100%, life leech amount +5%, mana leech chance +100%, mana leech amount +3%, magic level +5, protection ice +12%). It can only be wielded properly by druids of level 400 or higher. It weighs 25.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Soulshanks.png" },
+			name = "Soulshanks",
+			price = 750,
+			itemtype = 34092,
+			count = 1,
+			description = "(Arm:10, magic level +3, protection death +10%). It can only be wielded properly by sorcerers of level 400 or higher. It weighs 38.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Soulstrider.png" },
+			name = "Soulstrider",
+			price = 750,
+			itemtype = 34093,
+			count = 1,
+			description = "(Arm:10, magic level +3, protection fire +10%). It can only be wielded properly by druids of level 400 or higher. It weighs 38.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Soulshell.png" },
+			name = "Soulshell",
+			price = 750,
+			itemtype = 34094,
+			count = 1,
+			description = "(Arm:18, distance fighting +4, protection physical +3%, fire +15%). It can only be wielded properly by paladins of level 400 or higher. It weighs 123.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Soulmantle.png" },
+			name = "Soulmantle",
+			price = 750,
+			itemtype = 34095,
+			count = 1,
+			description = "(Arm:17, magic level +4, protection physical +4%). It can only be wielded properly by sorcerers of level 400 or higher. It weighs 24.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Soulshroud.png" },
+			name = "Soulshroud",
+			price = 750,
+			itemtype = 34096,
+			count = 1,
+			description = "(Arm:17, magic level +4, protection death +10%). It can only be wielded properly by druids of level 400 or higher. It weighs 24.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Pair_Of_Soulwalkers.png" },
+			name = "Pair of Soulwalkers",
+			price = 750,
+			itemtype = 34097,
+			count = 1,
+			description = "(Arm:4, club fighting +1, sword fighting +1, axe fighting +1, protection physical +7%, fire +5%, speed +15). It can only be wielded properly by knights of level 400 or higher. It weighs 13.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Pair_Of_Soulstalkers.png" },
+			name = "Pair of Soulstalkers",
+			price = 750,
+			itemtype = 34098,
+			count = 1,
+			description = "(Arm:3, distance fighting +1, protection physical +5%, speed +20). It can only be wielded properly by paladins of level 400 or higher. It weighs 13.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+		{
+			icons = { "Soulbastion.png" },
+			name = "SoulBastion",
+			price = 750,
+			itemtype = 34099,
+			count = 1,
+			description = "(Def:42, protection physical +10%, death +10%). It can only be wielded properly by knights of level 400 or higher. It weighs 58.00 oz.",
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			movable = true,
+			setOwner = false
+		},
+	},
+}

@@ -1,10 +1,7 @@
 # OpenTibiaBR - Canary
 
 [![Discord Channel](https://img.shields.io/discord/528117503952551936.svg?style=flat-square&logo=discord)](https://discord.gg/gvTj5sh9Mp)
-[![Build - Ubuntu](https://github.com/opentibiabr/canary/actions/workflows/build-ubuntu.yml/badge.svg)](https://github.com/opentibiabr/canary/actions/workflows/build-ubuntu.yml)
-[![Build - Windows - CMake](https://github.com/opentibiabr/canary/actions/workflows/build-windows-cmake.yml/badge.svg)](https://github.com/opentibiabr/canary/actions/workflows/build-windows-cmake.yml)
-[![Build - Windows - Solution](https://github.com/opentibiabr/canary/actions/workflows/build-windows-solution.yml/badge.svg)](https://github.com/opentibiabr/canary/actions/workflows/build-windows-solution.yml)
-[![Build - Docker](https://github.com/opentibiabr/canary/actions/workflows/build-docker.yml/badge.svg)](https://github.com/opentibiabr/canary/actions/workflows/build-docker.yml)
+[![CI](https://github.com/opentibiabr/canary/actions/workflows/ci.yml/badge.svg)](https://github.com/opentibiabr/canary/actions/workflows/ci.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=opentibiabr_canary&metric=alert_status)](https://sonarcloud.io/dashboard?id=opentibiabr_canary)
 ![GitHub repo size](https://img.shields.io/github/repo-size/opentibiabr/canary)
 [![GitHub](https://img.shields.io/github/license/opentibiabr/canary)](https://github.com/opentibiabr/canary/blob/main/LICENSE)
@@ -15,8 +12,26 @@ our [customized tools](https://docs.opentibiabr.com/opentibiabr/downloads/tools)
 
 ## Getting Started
 
-* [Gitbook](https://docs.opentibiabr.com/opentibiabr/projects/canary).
-* [Wiki](https://github.com/opentibiabr/canary/wiki).
+- [Gitbook](https://docs.opentibiabr.com/opentibiabr/projects/canary).
+- [Wiki](https://github.com/opentibiabr/canary/wiki).
+
+## Running Tests
+
+Tests can be run directly from the repository root using CMake test presets:
+
+```bash
+# Configure and build tests for your platform
+cmake --preset linux-debug && cmake --build --preset linux-debug
+
+# Run all tests
+ctest --preset linux-debug
+
+# For other platforms use:
+# ctest --preset macos-debug
+# ctest --preset windows-debug
+```
+
+For detailed testing information including adding tests and framework usage, see [tests/README.md](tests/README.md).
 
 ## Support
 
@@ -26,8 +41,8 @@ If you need help, please visit our [discord](https://discord.gg/gvTj5sh9Mp). Our
 
 Here are some ways you can contribute:
 
-* [Issue Tracker](https://github.com/opentibiabr/canary/issues/new/choose).
-* [Pull Request](https://github.com/opentibiabr/canary/pulls).
+- [Issue Tracker](https://github.com/opentibiabr/canary/issues/new/choose).
+- [Pull Request](https://github.com/opentibiabr/canary/pulls).
 
 You are subject to our code of conduct, read at [this link](https://github.com/opentibiabr/canary/blob/main/CODE_OF_CONDUCT.md).
 

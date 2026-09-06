@@ -1,6 +1,8 @@
-target_sources(${PROJECT_NAME}_lib PRIVATE
-    counter_pointer.cpp
-    pugicast.cpp
-    tools.cpp
-    wildcardtree.cpp
+target_sources(
+    ${CORE_TARGET_NAME}
+    PRIVATE benchmark.cpp
+            counter_pointer.cpp
+            pugicast.cpp
+            tools.cpp
+            wildcardtree.cpp
 )
