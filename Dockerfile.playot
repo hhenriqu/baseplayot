@@ -16,6 +16,11 @@
 #     nao e root isso falha, e como o script usa `set -e` o container morre.
 #     Reescrevemos o dump para o escopo de um unico banco e o tornamos
 #     nao-fatal.
+#  4. A partir do upstream v3.3.0 o default de TOGGLE_BIN_FOLDER virou OFF, o
+#     que joga o binario em /srv/canary em vez de build/linux-release/bin/.
+#     Passamos -DTOGGLE_BIN_FOLDER=ON no configure, exatamente como o
+#     docker/Dockerfile.x86 do upstream faz (v3.3.0 ate main), para o COPY
+#     abaixo continuar valido nos degraus seguintes.
 
 # --- Stage 1: dependencias (vcpkg) ------------------------------------------
 FROM ubuntu:24.04 AS dependencies
@@ -47,7 +52,7 @@ COPY . /srv/
 WORKDIR /srv
 
 RUN export VCPKG_ROOT=/opt/vcpkg/ \
-	&& cmake --preset linux-release \
+	&& cmake --preset linux-release -DTOGGLE_BIN_FOLDER=ON \
 	&& cmake --build --preset linux-release
 
 # --- Stage 3: runtime -------------------------------------------------------
