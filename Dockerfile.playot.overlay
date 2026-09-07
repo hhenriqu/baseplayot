@@ -1,0 +1,25 @@
+# PlayOT — overlay de scripts sobre uma imagem ja compilada
+#
+# Por que existe (HMO-72): a correcao de permissao do config.lua vive inteira
+# em `docker/data/start.sh`, que o Dockerfile.playot copia no estagio 3
+# (runtime). Um `docker build` completo invalidaria o `COPY . /srv/` do estagio
+# 2 e recompilaria todo o C++ — no VPS de 2 vCPU isso leva horas e concorre com
+# a producao, e o binario resultante nao seria mais o mesmo que a HMO-63/64
+# provou (vcpkg/apt teriam se movido). Este overlay troca so o script e mantem
+# o binario bit-a-bit identico ao da base.
+#
+# Uso:
+#   docker build -f Dockerfile.playot.overlay \
+#     --build-arg BASE_IMAGE=playot/canary:hmo64-final \
+#     -t playot/canary:hmo72 .
+#
+# Quando a imagem for reconstruida do zero a partir do Dockerfile.playot, o
+# start.sh corrigido ja vem do fonte e este overlay deixa de ser necessario.
+
+ARG BASE_IMAGE=playot/canary:hmo64-final
+FROM ${BASE_IMAGE}
+
+COPY docker/data/start.sh /canary/start.sh
+RUN chmod +x /canary/start.sh
+
+ENTRYPOINT ["/canary/start.sh"]

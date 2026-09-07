@@ -59,6 +59,12 @@ set_lua_line() {
 		printf '%s\n' "$replacement" >>"$tmp_file"
 	fi
 
+	# PLAYOT (HMO-72): `mktemp` cria o arquivo com modo 0600 e o `mv` preserva
+	# esse modo. Sem isto o config.lua publicado em /data/server/ fica
+	# ilegivel para o www-data do MyAAC: load_config_lua() volta vazio,
+	# configLua("ip")/("gameProtocolPort") viram NULL e o login.php entrega
+	# `externaladdress: null` — o cliente autentica e nao tem onde conectar.
+	chmod --reference=config.lua "$tmp_file" 2>/dev/null || chmod 644 "$tmp_file"
 	mv "$tmp_file" config.lua
 }
 
@@ -261,7 +267,8 @@ if [ -d "/data/server/" ]; then
 	echo "===== Copy Server Configuration And Data Pack To Shared Folder ====="
 	echo ""
 
-	cp config.lua /data/server/
+	# PLAYOT (HMO-72): modo explicito no arquivo que o MyAAC le.
+	install -m 644 config.lua /data/server/config.lua
 	cp -r data/ /data/server/
 	cp -r "$CANARY_DATA_PACK"/ /data/server/
 
