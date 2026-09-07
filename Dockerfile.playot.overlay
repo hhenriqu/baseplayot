@@ -10,13 +10,13 @@
 #
 # Uso:
 #   docker build -f Dockerfile.playot.overlay \
-#     --build-arg BASE_IMAGE=playot/canary:hmo64-final \
+#     --build-arg BASE_IMAGE=playot/canary:hmo64-final2 \
 #     -t playot/canary:hmo72 .
 #
 # Quando a imagem for reconstruida do zero a partir do Dockerfile.playot, o
 # start.sh corrigido ja vem do fonte e este overlay deixa de ser necessario.
 
-ARG BASE_IMAGE=playot/canary:hmo64-final
+ARG BASE_IMAGE=playot/canary:hmo64-final2
 FROM ${BASE_IMAGE}
 
 COPY docker/data/start.sh /canary/start.sh
